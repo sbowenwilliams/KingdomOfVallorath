@@ -34,6 +34,7 @@ setup(A, B, C) :-
 	    stat(A, has, _, attack),
 	    stat(A, has, _, knowledge),
 	    stat(A, has, _, luck),
+	    backstory(A, is_from, _),
 
 		detail(B, is, _, _C2),
 		detail(_C2, starts_with, _),
@@ -43,6 +44,8 @@ setup(A, B, C) :-
 	    stat(B, has, _, attack),
 	    stat(B, has, _, knowledge),
 	    stat(B, has, _, luck),
+	    backstory(B, is_from, _),
+
 
 	    detail(C, is, _, _C3),
 	    detail(_C3, starts_with, _),
@@ -51,7 +54,8 @@ setup(A, B, C) :-
 	    role(C, _, _),
 	    stat(C, has, _, attack),
 	    stat(C, has, _, knowledge),
-	    stat(C, has, _, luck)
+	    stat(C, has, _, luck),
+	    backstory(C, is_from, _)
 	    ]).
 
 setup(A, B, C, D) :-
@@ -64,6 +68,7 @@ setup(A, B, C, D) :-
 	    stat(A, has, _, attack),
 	    stat(A, has, _, knowledge),
 	    stat(A, has, _, luck),
+	    backstory(A, is_from, _),
 
 		detail(B, is, _, _C2),
 		detail(_C2, starts_with, _),
@@ -73,6 +78,7 @@ setup(A, B, C, D) :-
 	    stat(B, has, _, attack),
 	    stat(B, has, _, knowledge),
 	    stat(B, has, _, luck),
+	    backstory(B, is_from, _),
 
 	    detail(C, is, _, _C3),
 	    detail(_C3, starts_with, _),
@@ -82,6 +88,7 @@ setup(A, B, C, D) :-
 	    stat(C, has, _, attack),
 	    stat(C, has, _, knowledge),
 	    stat(C, has, _, luck),
+	    backstory(C, is_from, _),
 
 	    detail(D, is, _, _C4),
 	    detail(_C4, starts_with, _),
@@ -90,7 +97,8 @@ setup(A, B, C, D) :-
 	    role(D, _, _),
 	    stat(D, has, _, attack),
 	    stat(D, has, _, knowledge),
-	    stat(D, has, _, luck)
+	    stat(D, has, _, luck),
+	    backstory(D, is_from, _)
 	    ]).
 % Facts and implications
 %
@@ -131,6 +139,9 @@ stat(Character, has, Level, knowledge):-
 stat(Character, has, Level, luck):-
 	between(0,10, Level).
 
+backstory(Character, is_from, Story):-
+	backstory(Story).
+
 holding(_C, N):-
 	starts_with(class(_C), object(N)).
 
@@ -142,29 +153,33 @@ setup_encounter(Difficulty):-
 	make_encounter([
 		num_enemies(Difficulty, _),
 		enemy_vitality(Difficulty, _),
-		enemy_type(_)
+		enemy_type(_, _)
 		]).
 
 num_enemies(easy, Number):-
 	between(1,2, Number).
 num_enemies(medium, Number):-
-	between(3,5, Number).
+	between(3,4, Number).
 num_enemies(hard, Number):-
-	between(5,6, Number).
+	between(5,5, Number).
 num_enemies(boss, Number):-
 	between(1,1, Number).
+num_enemies(legendary, Number):-
+	between(5,6, Number).
 
 enemy_vitality(easy, Vitality):-
-	between(1,2,Vitality).
+	between(3,6,Vitality).
 enemy_vitality(medium, Vitality):-
-	between(3,5,Vitality).
+	between(6,15,Vitality).
 enemy_vitality(hard, Vitality):-
-	between(6,10,Vitality).
+	between(15,30,Vitality).
 enemy_vitality(boss, Vitality):-
-	between(50,70,Vitality).
+	between(60,90,Vitality).
+enemy_vitality(legendary, Vitality):-
+	between(40,60, Vitality).
 
-enemy_type(Enemy):-
-	enemy(Enemy).
+enemy_type(Enemy, Description):-
+	enemy(Enemy, Description).
 %
 % Solver code
 %
@@ -257,6 +272,14 @@ add_fact_list([Head | Tail], Old, New) :-
 compatible(P, Q) :-
 	\+ contradiction(P, Q),
 	\+ contradiction(Q, P).
+
+rolld20:-
+	random_solution(between(0,20, Number)),writeln(Number),!.
+rolld4:-
+	random_solution(between(0,4, Number)),writeln(Number),!.
+rolld6:-
+	random_solution(between(0,6, Number)),writeln(Number),!.
+
 
 
 

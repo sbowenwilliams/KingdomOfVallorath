@@ -119,6 +119,11 @@ object(arrows).
 object(lute).
 object(dagger).
 object(staff).
+object(bar_of_gold).
+object(meat).
+object(pendant).
+object(lockpick).
+object(potion).
 
 starts_with(class(warrior), object(sword_and_shield)).
 starts_with(class(mage), object(staff)).
@@ -126,31 +131,37 @@ starts_with(class(rogue), object(dagger)).
 starts_with(class(ranger), object(bow_and_arrow)).
 starts_with(class(bard), object(lute)).
 
-location(swamp).
-location(volcano).
-location(castle).
-location(cave).
-
 encounter(easy).
 encounter(medium).
 encounter(hard).
 encounter(legendary).
 encounter(boss).
 
-enemy(ghoul).
-enemy(undead_knight).
-enemy(dragon).
-enemy(malicious_townsfolk).
-enemy(thieves).
-enemy(ghosts).
-enemy(demon).
-enemy(harpy).
-enemy(hound).
-enemy(witch).
-enemy(goblin).
-enemy(troll).
-enemy(necromancer).
-enemy(unfriendly_elves).
+enemy(undead_knight, 'prioritizes warrior').
+enemy(dragon, 'all damage is done to entire group').
+enemy(malicious_townsfolk, 'prioritizes bard').
+enemy(thieves, 'steal: if enemy rolls crit item is removed from player inventory at gm discretion').
+enemy(ghosts, 'prioritizes mage').
+enemy(demon 'prioritizes strongest').
+enemy(harpy, 'prioritizes rangers').
+enemy(hound, 'prioritizes bards').
+enemy(witch, 'prioritizes lowest health').
+enemy(goblin, 'prioritizes randomly').
+enemy(troll, 'prioritizes closest player').
+enemy(necromancer, 'occasionally summons 1 vitality easy skeleton, prioritizes mages').
+enemy(unfriendly_elves, 'attacks from distance as archers, prioritizes closest target').
+
+backstory(noble_founding).
+backstory(noble_fallen).
+backstory(beggar_bethrothed).
+backstory(orphan).
+backstory(farmer).
+backstory(tradesman).
+backstory(criminal).
+backstory(rogue_mage).
+backstory(naive_mage).
+backstory(former_soldier).
+backstory(boring).
 
 quest('For the last 100 years, the citizens of Vallorath have enjoyed prosperous times. That is, until King Bradley died suddenly, and his brother claimed the crown. With immediate steep raises in taxes and harsh punishments for disobedience, the new King, Lester, does not have many friends among the common folk. Your party has been hired to save the kingdom from ruin. Starting location: small town to the West of the castle.').
 quest('The scholars at the Mages College have noticed a sudden and unexplained decrease in their powers. Your party has been tasked with searching for any magical anomalies and fixing them before they can be exploited by those with less-than-friendly intentions. Starting location: Mages College.').
