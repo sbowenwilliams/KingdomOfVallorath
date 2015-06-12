@@ -103,33 +103,32 @@ implies(need(C, seek_knowledge),
 	class(C, mage)).
 need(prove_themselves).
 
-object(sword_and_shield).
-object(bow_and_arrow).
-object(staff).
-object(cloak).
-object(helm).
-object(tent).
-object(torch).
-object(rope).
-object(flaggon).
-object(sword).
-object(shield).
-object(bow).
-object(arrows).
-object(lute).
-object(dagger).
-object(staff).
-object(bar_of_gold).
-object(meat).
-object(pendant).
-object(lockpick).
-object(potion).
+object('sword of +1 attack').
+object('shield of +2 damage reduction').
+object('bow of +1 attack').
+object('staff of +1 attack').
+object('cloack of +1 damge reduction').
+object('helm of +1 damage reduction').
+object('tent of +10 vitality (for all party members)').
+object('torch').
+object('rope - 30 feet').
+object('flaggon of -1 knowledge, +1 luck (on use)').
+object('lute of +1 luck').
+object('dagger of +1 attack').
+object('bar_of_gold').
+object('meat of +5 vitality (on use)').
+object('pendant of +2 knowledge').
+object('lockpick').
+object('potion of + 20 vitality (on use)').
+object('potion of + 5 attack (on use)').
+object('potion of + 5 luck (on use)').
+object('tome of +2 knowledge')
 
-starts_with(class(warrior), object(sword_and_shield)).
-starts_with(class(mage), object(staff)).
-starts_with(class(rogue), object(dagger)).
-starts_with(class(ranger), object(bow_and_arrow)).
-starts_with(class(bard), object(lute)).
+starts_with(class(warrior), object('sword of +1 attack')).
+starts_with(class(mage), object('staff of +1 attack')).
+starts_with(class(rogue), object('dagger of +1 attack')).
+starts_with(class(ranger), object('bow of +1 attack')).
+starts_with(class(bard), object('lute of +1 luck')).
 
 encounter(easy).
 encounter(medium).
