@@ -115,14 +115,14 @@ object('rope - 30 feet').
 object('flaggon of -1 knowledge, +1 luck (on use)').
 object('lute of +1 luck').
 object('dagger of +1 attack').
-object('bar_of_gold').
+object('bar of gold').
 object('meat of +5 vitality (on use)').
 object('pendant of +2 knowledge').
 object('lockpick').
 object('potion of + 20 vitality (on use)').
 object('potion of + 5 attack (on use)').
 object('potion of + 5 luck (on use)').
-object('tome of +2 knowledge')
+object('tome of +2 knowledge').
 
 starts_with(class(warrior), object('sword of +1 attack')).
 starts_with(class(mage), object('staff of +1 attack')).
