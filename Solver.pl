@@ -280,11 +280,11 @@ compatible(P, Q) :-
 	\+ contradiction(Q, P).
 
 rolld20:-
-	random_solution(between(0,20, Number)),writeln(Number),!.
+	random_solution(between(1,20, Number)),writeln(Number),!.
 rolld4:-
-	random_solution(between(0,4, Number)),writeln(Number),!.
+	random_solution(between(1,4, Number)),writeln(Number),!.
 rolld6:-
-	random_solution(between(0,6, Number)),writeln(Number),!.
+	random_solution(between(1,6, Number)),writeln(Number),!.
 
 
 
