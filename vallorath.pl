@@ -103,6 +103,9 @@ implies(need(C, seek_knowledge),
 	class(C, mage)).
 need(prove_themselves).
 
+object(sword_and_shield).
+object(bow_and_arrow).
+object(staff).
 object(cloak).
 object(helm).
 object(tent).
@@ -117,16 +120,11 @@ object(lute).
 object(dagger).
 object(staff).
 
-gold(_).
-
-implies(class(warrior), object(sword), object(shield)).
-implied(class(mage), object(staff)).
-implies(class(rouge), object(dagger)).
-implies(class(ranger), object(bow), object(arrows)).
-implies(class(bard), object(lute)).
-
-implies(class(warrior), gold(16)).
-implies(class(bard), gold(4593521)).
+starts_with(class(warrior), object(sword_and_shield)).
+starts_with(class(mage), object(staff)).
+starts_with(class(rogue), object(dagger)).
+starts_with(class(ranger), object(bow_and_arrow)).
+starts_with(class(bard), object(lute)).
 
 location(swamp).
 location(volcano).
@@ -144,3 +142,12 @@ enemy(undead_knight).
 enemy(dragon).
 enemy(malicious_townsfolk).
 enemy(thieves).
+enemy(ghosts).
+enemy(demon).
+enemy(harpy).
+enemy(hound).
+enemy(witch).
+enemy(goblin).
+enemy(troll).
+enemy(necromancer).
+enemy(unfriendly_elves).

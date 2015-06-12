@@ -26,21 +26,26 @@
 %% Call these with the names of your characters to make a random setup.
 setup(A, B, C) :-
 	make_setup([
-		detail(A, is, _, _),
+		detail(A, is, _, _C1),
+		detail(_C1, starts_with, _),
 	    detail(A, needs, _),
 	    detail(A, has, _),
 	    role(A, _, _),
 	    stat(A, has, _, attack),
 	    stat(A, has, _, knowledge),
 	    stat(A, has, _, luck),
-		detail(B, is, _, _),
+
+		detail(B, is, _, _C2),
+		detail(_C2, starts_with, _),
 	    detail(B, needs, _),
 	    detail(B, has, _),
 	    role(B, _, _),
 	    stat(B, has, _, attack),
 	    stat(B, has, _, knowledge),
 	    stat(B, has, _, luck),
-	    detail(C, is, _, _),
+
+	    detail(C, is, _, _C3),
+	    detail(_C3, starts_with, _),
 	    detail(C, needs, _),
 	    detail(C, has, _),
 	    role(C, _, _),
@@ -51,46 +56,89 @@ setup(A, B, C) :-
 
 setup(A, B, C, D) :-
 	make_setup([
-		detail(A, is, _, _),
+		detail(A, is, _, _C1),
+		detail(_C1, starts_with, _),
 	    detail(A, needs, _),
 	    detail(A, has, _),
 	    role(A, _, _),
-		detail(B, is, _, _),
+	    stat(A, has, _, attack),
+	    stat(A, has, _, knowledge),
+	    stat(A, has, _, luck),
+
+		detail(B, is, _, _C2),
+		detail(_C2, starts_with, _),
 	    detail(B, needs, _),
 	    detail(B, has, _),
 	    role(B, _, _),
-	    detail(C, is, _, _),
+	    stat(B, has, _, attack),
+	    stat(B, has, _, knowledge),
+	    stat(B, has, _, luck),
+
+	    detail(C, is, _, _C3),
+	    detail(_C3, starts_with, _),
 	    detail(C, needs, _),
 	    detail(C, has, _),
 	    role(C, _, _),
-	    detail(D, is, _, _),
+	    stat(C, has, _, attack),
+	    stat(C, has, _, knowledge),
+	    stat(C, has, _, luck),
+
+	    detail(D, is, _, _C4),
+	    detail(_C4, starts_with, _),
 	    detail(D, needs, _),
 	    detail(D, has, _),
-	    role(D, _, _)
+	    role(D, _, _),
+	    stat(D, has, _, attack),
+	    stat(D, has, _, knowledge),
+	    stat(D, has, _, luck)
 	    ]).
 
 setup(A, B, C, D, E) :-
 	make_setup([
-		detail(A, is, _, _),
+		detail(A, is, _, _C1),
+		detail(_C1, starts_with, _),
 	    detail(A, needs, _),
 	    detail(A, has, _),
 	    role(A, _, _),
-		detail(B, is, _, _),
+	    stat(A, has, _, attack),
+	    stat(A, has, _, knowledge),
+	    stat(A, has, _, luck),
+
+		detail(B, is, _, _C2),
+		detail(_C2, starts_with, _),
 	    detail(B, needs, _),
 	    detail(B, has, _),
 	    role(B, _, _),
-	    detail(C, is, _, _),
+	    stat(B, has, _, attack),
+	    stat(B, has, _, knowledge),
+	    stat(B, has, _, luck),
+
+	    detail(C, is, _, _C3),
+	    detail(_C3, starts_with, _),
 	    detail(C, needs, _),
 	    detail(C, has, _),
 	    role(C, _, _),
-	    detail(D, is, _, _),
+	    stat(C, has, _, attack),
+	    stat(C, has, _, knowledge),
+	    stat(C, has, _, luck),
+
+	    detail(D, is, _, _C4),
+	    detail(_C4, starts_with, _),
 	    detail(D, needs, _),
 	    detail(D, has, _),
 	    role(D, _, _),
-	    detail(E, is, _, _),
+	    stat(D, has, _, attack),
+	    stat(D, has, _, knowledge),
+	    stat(D, has, _, luck),
+
+	    detail(E, is, _, _C5),
+	    detail(_C5, starts_with, _),
 	    detail(E, needs, _),
-	    details(E, has, _),
-	    role(E, _, _)
+	    detail(E, has, _),
+	    role(E, _, _),
+	    stat(E, has, _, attack),
+	    stat(E, has, _, knowledge),
+	    stat(E, has, _, luck)
 	    ]).
 %
 % Facts and implications
@@ -102,6 +150,8 @@ detail(_Character, needs, Need) :-
 	need(Need).
 detail(_Character, at, X) :-
 	location(X).
+detail(_Character, starts_with, X):-
+	holding(_Character, X).
 detail(_Character, has, X) :-
 	object(X).
 detail(_Character, is, X, Y):-
@@ -130,6 +180,8 @@ stat(Character, has, Level, knowledge):-
 stat(Character, has, Level, luck):-
 	between(0,10, Level).
 
+holding(_C, N):-
+	starts_with(class(_C), object(N)).
 
 % A character can need N if N is a kind of need
 needs(_C, N) :-
@@ -138,7 +190,8 @@ needs(_C, N) :-
 setup_encounter(Difficulty):-
 	make_encounter([
 		num_enemies(Difficulty, _),
-		enemy_vitality(Difficulty, _)
+		enemy_vitality(Difficulty, _),
+		enemy_type(_)
 		]).
 
 num_enemies(easy, Number):-
@@ -158,6 +211,9 @@ enemy_vitality(hard, Vitality):-
 	between(6,10,Vitality).
 enemy_vitality(boss, Vitality):-
 	between(50,70,Vitality).
+
+enemy_type(Enemy):-
+	enemy(Enemy).
 %
 % Solver code
 %
