@@ -19,6 +19,10 @@ race(dwarven).
 race(orcish).
 race(gnomish).
 
+stat(attack).
+stat(knowledge).
+stat(luck).
+
 attribute(hotblooded).
 attribute(sheepish).
 attribute(patient).
@@ -58,46 +62,6 @@ attribute(modest).
 attribute(arrogant).
 attribute(naughty).
 attribute(nice).
-
-
-%% symmetric(rival_coworkers).
-%% implies(relationship(X, rival_coworkers, _),
-%% 	role(X, casino_employee)).
-%% implies(relationship(_, rival_coworkers, Y),
-%% 	role(Y, casino_employee)).
-	
-%% symmetric(rival_managers).
-%% implies(relationship(X, rival_managers, _),
-%% 	role(X, floor_manager)).
-%% implies(relationship(_, rival_managers, Y),
-%% 	role(Y, floor_manager)).
-
-%% symmetric(rival_gang_leaders).
-%% implies(relationship(X, rival_gang_leaders, _),
-%% 	role(X, gang_leader)).
-%% implies(relationship(_, rival_gang_leaders, Y),
-%% 	role(Y, gang_leader)).
-
-%% symmetric(rival_drivers).
-%% implies(relationship(X, rival_drivers, _),
-%% 	role(X, driver)).
-%% implies(relationship(_, rival_drivers, Y),
-%% 	role(Y, driver)).
-
-%% symmetric(past_cell_mates).
-%% implies(relationship(X, past_cell_mates, _),
-%% 	role(X, thug)).
-%% implies(relationship(_, past_cell_mates, Y),
-%% 	role(Y, thug)).
-
-%% generalizes(sibling,family).
-%% generalizes(thug,gang_member).
-%% generalizes(gang_leader,gang_member).
-%% generalizes(casino_employee,casino_worker).
-%% generalizes(floor_manager,casino_worker).
-%% generalizes(politician,polical_actor).
-%% generalizes(staffer,polical_actor).
-%% generalizes(dirty_cop, gang_member).
 
 conflicting_roles(hotblooded,sheepish).
 conflicting_roles(patient,impulsive).
@@ -170,21 +134,10 @@ location(swamp).
 location(volcano).
 location(castle).
 location(cave).
+location(yourmumsbutt).
 
-	
-%% location(drunk_tank).
-%% implies(at(C, drunk_tank),
-%% 	\+role(C,politician)).
-%% implies(at(C, drunk_tank),
-%% 	\+role(C, good_cop)).
-
-%% location(watching_bonneville_salt_flats).
-
-%% location(drag_racing_on_bonneville_salt_flats).
-%% implies(at(C, drag_racing_on_bonneville_salt_flats),
-%% 	role(C, driver)).
-	
-%% location(in_and_out).
-%% location(airport).
-%% location(wathing_a_magic_show).
-%% location(fabulous_las_vegas_sign).
+enemy(ghoul).
+enemy(undead_knight).
+enemy(dragon).
+enemy(malicious_townsfolk).
+enemy(thieves).
