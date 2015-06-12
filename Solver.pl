@@ -92,55 +92,6 @@ setup(A, B, C, D) :-
 	    stat(D, has, _, knowledge),
 	    stat(D, has, _, luck)
 	    ]).
-
-setup(A, B, C, D, E) :-
-	make_setup([
-		detail(A, is, _, _C1),
-		detail(_C1, starts_with, _),
-	    detail(A, needs, _),
-	    detail(A, has, _),
-	    role(A, _, _),
-	    stat(A, has, _, attack),
-	    stat(A, has, _, knowledge),
-	    stat(A, has, _, luck),
-
-		detail(B, is, _, _C2),
-		detail(_C2, starts_with, _),
-	    detail(B, needs, _),
-	    detail(B, has, _),
-	    role(B, _, _),
-	    stat(B, has, _, attack),
-	    stat(B, has, _, knowledge),
-	    stat(B, has, _, luck),
-
-	    detail(C, is, _, _C3),
-	    detail(_C3, starts_with, _),
-	    detail(C, needs, _),
-	    detail(C, has, _),
-	    role(C, _, _),
-	    stat(C, has, _, attack),
-	    stat(C, has, _, knowledge),
-	    stat(C, has, _, luck),
-
-	    detail(D, is, _, _C4),
-	    detail(_C4, starts_with, _),
-	    detail(D, needs, _),
-	    detail(D, has, _),
-	    role(D, _, _),
-	    stat(D, has, _, attack),
-	    stat(D, has, _, knowledge),
-	    stat(D, has, _, luck),
-
-	    detail(E, is, _, _C5),
-	    detail(_C5, starts_with, _),
-	    detail(E, needs, _),
-	    detail(E, has, _),
-	    role(E, _, _),
-	    stat(E, has, _, attack),
-	    stat(E, has, _, knowledge),
-	    stat(E, has, _, luck)
-	    ]).
-%
 % Facts and implications
 %
 
@@ -225,8 +176,10 @@ make_setup(Setup) :-
 	forall(member(Fact, Setup),
 	       writeln(Fact)),
 	nl,
-	writeln('press any key to being your adventure'),
+	writeln('Type any character followed by a period to begin your adventure!'),
 	read(_),
+	random_solution(quest(X)),
+	writeln(X),
 	%% writeln('Inferred facts:'),
 	%% forall(member(Fact, DB),
 	%%        writeln(Fact)),
