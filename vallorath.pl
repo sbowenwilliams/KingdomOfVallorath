@@ -154,10 +154,10 @@ enemy(unfriendly_elves, 'attacks from distance as archers, prioritizes closest t
 backstory(noble_founding).
 backstory(noble_fallen).
 backstory(beggar_bethrothed).
-backstory(orphan).
-backstory(farmer).
-backstory(tradesman).
-backstory(criminal).
+backstory(beggar_orphan).
+backstory(farmer_no_more).
+backstory(tradesman_no_more).
+backstory(reformed_criminal).
 backstory(rogue_mage).
 backstory(naive_mage).
 backstory(former_soldier).
