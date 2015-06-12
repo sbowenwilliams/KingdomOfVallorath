@@ -134,7 +134,12 @@ location(swamp).
 location(volcano).
 location(castle).
 location(cave).
-location(yourmumsbutt).
+
+encounter(easy).
+encounter(medium).
+encounter(hard).
+encounter(legendary).
+encounter(boss).
 
 enemy(ghoul).
 enemy(undead_knight).

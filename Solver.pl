@@ -92,21 +92,6 @@ setup(A, B, C, D, E) :-
 	    details(E, has, _),
 	    role(E, _, _)
 	    ]).
-
-setup(A, B, C, D, E, F) :-
-	make_setup([relationship(A, _, B),
-		    relationship(B, _, C),
-		    relationship(C, _, D),
-		    relationship(D, _, E),
-		    relationship(E, _, F),
-		    relationship(F, _, A),
-		    detail(A, _, _),
-		    detail(B, _, _),
-		    detail(C, _, _),
-		    detail(D, _, _),
-		    detail(E, _, _),
-		    detail(F, _, _)]).
-
 %
 % Facts and implications
 %
@@ -150,6 +135,29 @@ stat(Character, has, Level, luck):-
 needs(_C, N) :-
 	need(N).
 
+setup_encounter(Difficulty):-
+	make_encounter([
+		num_enemies(Difficulty, _),
+		enemy_vitality(Difficulty, _)
+		]).
+
+num_enemies(easy, Number):-
+	between(1,2, Number).
+num_enemies(medium, Number):-
+	between(3,5, Number).
+num_enemies(hard, Number):-
+	between(5,6, Number).
+num_enemies(boss, Number):-
+	between(1,1, Number).
+
+enemy_vitality(easy, Vitality):-
+	between(1,2,Vitality).
+enemy_vitality(medium, Vitality):-
+	between(3,5,Vitality).
+enemy_vitality(hard, Vitality):-
+	between(6,10,Vitality).
+enemy_vitality(boss, Vitality):-
+	between(50,70,Vitality).
 %
 % Solver code
 %
@@ -164,6 +172,14 @@ make_setup(Setup) :-
 	%% writeln('Inferred facts:'),
 	%% forall(member(Fact, DB),
 	%%        writeln(Fact)),
+	!.
+
+make_encounter(Setup) :-
+	choose(Setup, DB),
+	writeln('Encounter:'),
+	forall(member(Fact, Setup),
+		writeln(Fact)),
+	nl,
 	!.
 
 % Find a valid setup
@@ -230,6 +246,7 @@ add_fact_list([Head | Tail], Old, New) :-
 compatible(P, Q) :-
 	\+ contradiction(P, Q),
 	\+ contradiction(Q, P).
+
 
 
 
