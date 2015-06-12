@@ -23,50 +23,57 @@
 	     relation/1, symmetric/1, roles_relation/1,
 	     contradiction/2, implies/2, generalization/2, conflicting_roles/2.
 
+:- export((class/1, race/1, conflicting_roles/2, need/1, object/1, location/1)).
+
+
 %% Call these with the names of your characters to make a random setup.
-setup(A, B, C) :-
-	make_setup([relationship(A, _, B),
-		    relationship(B, _, C),
-		    relationship(C, _, A),
-		    detail(A, _, _),
-		    detail(B, _, _),
-		    detail(C, _, _)]).
+%% setup(A, B, C) :-
+%% 	make_setup([relationship(A, _, B),
+%% 		    relationship(B, _, C),
+%% 		    relationship(C, _, A),
+%% 		    detail(A, _, _),
+%% 		    detail(B, _, _),
+%% 		    detail(C, _, _)]).
 
 setup(A, B, C, D) :-
-	make_setup([relationship(A, _, B),
-		    relationship(B, _, C),
-		    relationship(C, _, D),
-		    relationship(D, _, A),
+	make_setup([race(A),
+		    race(B),
+		    race(C),
+		    race(D),
+		    class(A),
+		    class(B),
+		    class(C),
+		    class(D),
 		    detail(A, _, _),
 		    detail(B, _, _),
 		    detail(C, _, _),
 		    detail(D, _, _)]).
 
-setup(A, B, C, D, E) :-
-	make_setup([relationship(A, _, B),
-		    relationship(B, _, C),
-		    relationship(C, _, D),
-		    relationship(D, _, E),
-		    relationship(E, _, A),
-		    detail(A, _, _),
-		    detail(B, _, _),
-		    detail(C, _, _),
-		    detail(D, _, _),
-		    detail(E, _, _)]).
+%% setup(A, B, C, D, E) :-
+%% 	make_setup([relationship(A, _, B),
+%% 		    relationship(B, _, C),
+%% 		    relationship(C, _, D),
+%% 		    relationship(D, _, E),
+%% 		    relationship(E, _, A),
+%% 		    detail(A, _, _),
+%% 		    detail(B, _, _),
+%% 		    detail(C, _, _),
+%% 		    detail(D, _, _),
+%% 		    detail(E, _, _)]).
 
-setup(A, B, C, D, E, F) :-
-	make_setup([relationship(A, _, B),
-		    relationship(B, _, C),
-		    relationship(C, _, D),
-		    relationship(D, _, E),
-		    relationship(E, _, F),
-		    relationship(F, _, A),
-		    detail(A, _, _),
-		    detail(B, _, _),
-		    detail(C, _, _),
-		    detail(D, _, _),
-		    detail(E, _, _),
-		    detail(F, _, _)]).
+%% setup(A, B, C, D, E, F) :-
+%% 	make_setup([relationship(A, _, B),
+%% 		    relationship(B, _, C),
+%% 		    relationship(C, _, D),
+%% 		    relationship(D, _, E),
+%% 		    relationship(E, _, F),
+%% 		    relationship(F, _, A),
+%% 		    detail(A, _, _),
+%% 		    detail(B, _, _),
+%% 		    detail(C, _, _),
+%% 		    detail(D, _, _),
+%% 		    detail(E, _, _),
+%% 		    detail(F, _, _)]).
 
 %
 % Facts and implications
