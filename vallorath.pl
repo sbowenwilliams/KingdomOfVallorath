@@ -86,26 +86,6 @@ conflicting_roles(kinky, vanilla).
 conflicting_roles(gentle, rough).
 
 
-contradiction(relationship(X, robber/heist_leader, Y),
-	      relationship(X, robber/heist_leader, Z)) :-
-	Y \= Z.
-
-contradiction(relationship(X, thug/gang_leader, Y),
-	      relationship(X, thug/gang_leader, Z)) :-
-	Y \= Z.
-
-contradiction(relationship(X, target/hitman, Y),
-	      relationship(X, target/hitman, Z)) :-
-	Y \= Z.
-
-contradiction(relationship(X, staffer/politician, Y),
-	      relationship(X, staffer/politician, Z)) :-
-	Y \= Z.
-	
-contradiction(relationship(X, casino_employee/floor_manager, Y),
-	      relationship(X, casino_employee/floor_manager, Z)) :-
-	Y \= Z.
-
 need(become_a_hero).
 need(revenge).
 need(honor_family).
@@ -129,6 +109,24 @@ object(tent).
 object(torch).
 object(rope).
 object(flaggon).
+object(sword).
+object(shield).
+object(bow).
+object(arrows).
+object(lute).
+object(dagger).
+object(staff).
+
+gold(_).
+
+implies(class(warrior), object(sword), object(shield)).
+implied(class(mage), object(staff)).
+implies(class(rouge), object(dagger)).
+implies(class(ranger), object(bow), object(arrows)).
+implies(class(bard), object(lute)).
+
+implies(class(warrior), gold(16)).
+implies(class(bard), gold(4593521)).
 
 location(swamp).
 location(volcano).
