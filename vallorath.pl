@@ -19,6 +19,46 @@ race(dwarven).
 race(orcish).
 race(gnomish).
 
+attribute(hotblooded).
+attribute(sheepish).
+attribute(patient).
+attribute(impulsive).
+attribute(timid).
+attribute(adventurous).
+attribute(agreeable).
+attribute(disagreeable).
+attribute(friendly).
+attribute(unfriendly).
+attribute(hardy).
+attribute(prissy).
+attribute(lonely).
+attribute(suave).
+attribute(selfish).
+attribute(selfless).
+attribute(relaxed).
+attribute(uptight).
+attribute(bold).
+attribute(reserved).
+attribute(serious).
+attribute(sassy).
+attribute(jolly).
+attribute(morose).
+attribute(naive).
+attribute(worldly).
+attribute(addict).
+attribute(pious).
+attribute(clumsy).
+attribute(deft).
+attribute(graceful).
+attribute(tactless).
+attribute(quiet).
+attribute(loud).
+attribute(modest).
+attribute(modest).
+attribute(arrogant).
+attribute(naughty).
+attribute(nice).
+
 
 %% symmetric(rival_coworkers).
 %% implies(relationship(X, rival_coworkers, _),
