@@ -157,7 +157,7 @@ setup_encounter(Difficulty):-
 		]).
 
 num_enemies(easy, Number):-
-	between(1,2, Number).
+	between(2,2, Number).
 num_enemies(medium, Number):-
 	between(3,4, Number).
 num_enemies(hard, Number):-
@@ -168,15 +168,15 @@ num_enemies(legendary, Number):-
 	between(5,6, Number).
 
 enemy_vitality(easy, Vitality):-
-	between(3,6,Vitality).
+	between(10,20,Vitality).
 enemy_vitality(medium, Vitality):-
-	between(6,15,Vitality).
+	between(20,35,Vitality).
 enemy_vitality(hard, Vitality):-
-	between(15,30,Vitality).
+	between(35,55,Vitality).
 enemy_vitality(boss, Vitality):-
-	between(60,90,Vitality).
+	between(80,120,Vitality).
 enemy_vitality(legendary, Vitality):-
-	between(40,60, Vitality).
+	between(55,75, Vitality).
 
 enemy_type(Enemy, Description):-
 	enemy(Enemy, Description).
@@ -206,6 +206,12 @@ make_encounter(Setup) :-
 	forall(member(Fact, Setup),
 		writeln(Fact)),
 	nl,
+
+	writeln('Drops on Victory:'),
+	random_solution(object(Object)),
+	writeln(Object),
+	random_solution(object(Object2)),
+	writeln(Object2),
 	!.
 
 % Find a valid setup
