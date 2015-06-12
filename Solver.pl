@@ -34,14 +34,20 @@ setup(A, B, C) :-
 
 setup(A, B, C, D) :-
 	make_setup([
+			detail(A, is, _, _),
 		    detail(A, needs, _),
-		    detail(A, at, _),
-		    detail(A, is, _),
 		    detail(A, has, _),
-
-		    detail(B, _, _),
-		    detail(C, _, _),
-		    detail(D, _, _)]).
+		    role(A, X, Y),
+			detail(B, is, _, _),
+		    detail(B, needs, _),
+		    detail(B, has, _),
+		    detail(C, is, _, _),
+		    detail(C, needs, _),
+		    detail(C, has, _),
+		    detail(D, is, _, _),
+		    detail(D, needs, _),
+		    detail(D, has, _)
+		    ]).
 
 setup(A, B, C, D, E) :-
 	make_setup([relationship(A, _, B),
@@ -81,8 +87,8 @@ detail(_Character, at, X) :-
 	location(X).
 detail(_Character, has, X) :-
 	object(X).
-detail(_Character, is, X):-
-	class(X).
+detail(_Character, is, X, Y):-
+	 race(X), class(Y).
 
 implies(detail(Character, needs, N),
 	needs(Character, N)).
@@ -93,9 +99,16 @@ implies(detail(Character, at, Location),
 implies(detail(Character, is, Class),
 	is(Character, Class)).
 
+role(Character, X, Y) :-
+	attribute(X),
+	attribute(Y),
+	\+conflicting_roles(X, Y),
+	\+conflicting_roles(Y, X),
+	attribute(X) \= attribute(Y).
+
 % You can have a relationship between two characters if Relation is
 % a kind of relation
-relationship(_, Relation, _) :-
+relationship(_, Relation) :-
 	relation(Relation).
 
 % If R1 is a special kind of R2, then infer R2 from R1
@@ -116,6 +129,9 @@ implies(relationship(X, Relation, Y),
 % A role relation can be either X/Y or Y/X
 relation(X/Y) :-
 	roles_relation(X/Y) ; roles_relation(Y/X).
+
+%% role(X, Y) :-
+%% 	\+conflicting_roles(X, Y).
 
 % A role relationship XRole/YRole implies the X role for the first
 % character, and the YRole for the second character
