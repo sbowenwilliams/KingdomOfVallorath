@@ -151,3 +151,9 @@ enemy(goblin).
 enemy(troll).
 enemy(necromancer).
 enemy(unfriendly_elves).
+
+quest("For the last 100 years, the citizens of Vallorath have enjoyed prosperous times. That is, until King Bradley died suddenly, and his brother claimed the crown. With immediate steep raises in taxes and harsh punishments for disobedience, the new King, Lester, does not have many friends among the common folk. Your party has been hired to save the kingdom from ruin. Starting location: small town to the West of the castle.").
+quest("The scholars at the Mages College have noticed a sudden and unexplained decrease in their powers. Your party has been tasked with searching for any magical anomalies and fixing them before they can be exploited by those with less-than-friendly intentions. Starting location: Mages College.").
+quest("Recent bandit activity in Vallorath has reached an all-time high. The biggest bandit factions have joined forces under the name The People’s Army. The high king of Vallorath has hired your party to infiltrate and crush the group in its infancy, before it turns into a full-blown rebellion. The bandit camp is located in the Northern-most region of the Kingdom. Starting location: Outside the capitol city.").
+quest("A wealthy merchant has hired your party to kill someone interrupting his trade routes and stealing his merchandise. Little is known about this thief, though he is rumored to reside in a vast cave system in the East of the Kingdom. Starting location: merchant’s house, capitol city.").
+quest("Legends tell of the great pirate Mineer and his buried treasure. Thought by most to only be children’s tales, a map has recently been unearthed that seems to lead the way to the treasure, containing unfathomable wealth and items. Your party is racing to find it before anyone else can. Starting location: capitol city.").
