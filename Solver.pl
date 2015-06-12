@@ -225,6 +225,8 @@ make_setup(Setup) :-
 	forall(member(Fact, Setup),
 	       writeln(Fact)),
 	nl,
+	writeln('press any key to being your adventure'),
+	read(_),
 	%% writeln('Inferred facts:'),
 	%% forall(member(Fact, DB),
 	%%        writeln(Fact)),
