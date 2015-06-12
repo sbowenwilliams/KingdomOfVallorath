@@ -117,11 +117,16 @@ object(lute).
 object(dagger).
 object(staff).
 
+gold(_).
+
 implies(class(warrior), object(sword), object(shield)).
 implied(class(mage), object(staff)).
 implies(class(rouge), object(dagger)).
 implies(class(ranger), object(bow), object(arrows)).
 implies(class(bard), object(lute)).
+
+implies(class(warrior), gold(16)).
+implies(class(bard), gold(4593521)).
 
 location(swamp).
 location(volcano).
