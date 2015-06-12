@@ -1,11 +1,3 @@
-%
-% Random Kingdom of Vallorath setup generator
-% To use this:
-%  - Open this file and the file with your playset in the editor
-%  - Do compile buffer on this file, and then your playset.
-%  - Run the setup predicate with the names of your characters as
-%    arguments
-
 KINGDOM OF VALLORATH Usage Guide
 
 1) Read the game guide and game master guides
