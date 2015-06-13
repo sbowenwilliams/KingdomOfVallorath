@@ -64,26 +64,77 @@ attribute(naughty).
 attribute(nice).
 
 conflicting_roles(hotblooded,sheepish).
+conflicting_roles(hotblooded, patient).
+conflicting_roles(hotblooded, timid).
+conflicting_roles(hotblooded, relaxed).
+conflicting_roles(sheepish, bold).
+conflicting_roles(sheepish, loud).
 conflicting_roles(patient,impulsive).
 conflicting_roles(timid,adventurous).
+conflicting_roles(timid, bold).
+conflicting_roles(timid, loud).
+conflicting_roles(adventurous, reserved).
 conflicting_roles(agreeable,disagreeable).
+conflicting_roles(agreeable, unfriendly).
+conflicting_roles(agreeable, tactless).
+conflicting_roles(disagreeable, friendly).
+conflicting_roles(disagreeable, nice).
 conflicting_roles(friendly,unfriendly).
+conflicting_roles(friendly, selfish).
+conflicting_roles(friendly, arrogant).
+conflicting_roles(unfriendly, selfless).
+conflicting_roles(unfriendly, jolly).
+conflicting_roles(unfriendly, nice).
 conflicting_roles(hardy,prissy).
-conflicting_roles(lonely,ladykiller).
+conflicting_roles(hardy, naive).
+conflicting_roles(prissy, relaxed).
+conflicting_roles(prissy, jolly).
+conflicting_roles(prissy, naughty).
+conflicting_roles(lonely,suave).
+conflicting_roles(lonely, bold).
+conflicting_roles(lonely, jolly).
+conflicting_roles(suave, uptight).
+conflicting_roles(suave, naive).
+conflicting_roles(suave, clumsy).
+conflicting_roles(suave, tactless).
 conflicting_roles(selfish,selfless).
+conflicting_roles(selfish, pious).
+conflicting_roles(selfish, modest).
+conflicting_roles(selfish, nice).
+conflicting_roles(selfless, addict).
+conflicting_roles(selfless, arrogant).
+conflicting_roles(selfless, naughty).
 conflicting_roles(relaxed,uptight).
+conflicting_roles(relaxed, serious).
+conflicting_roles(uptight, jolly).
+conflicting_roles(uptight, naughty).
 conflicting_roles(bold,reserved).
+conflicting_roles(bold, quiet).
+conflicting_roles(reserved, loud).
 conflicting_roles(serious,sassy).
+conflicting_roles(serious, jolly).
+conflicting_roles(sassy, pious).
 conflicting_roles(jolly,morose).
+conflicting_roles(jolly, quiet).
+conflicting_roles(morose, loud).
 conflicting_roles(naive, worldly).
+conflicting_roles(worldly, tactless).
+conflicting_roles(worldly, arrogant).
 conflicting_roles(addict, pious).
+conflicting_roles(addict, graceful).
+conflicting_roles(addict, nice).
+conflicting_roles(pious, naughty).
 conflicting_roles(clumsy, deft).
+conflicting_roles(clumsy, graceful).
+conflicting_roles(deft, tactless).
+conflicting_roles(deft, loud).
 conflicting_roles(graceful, tactless).
+conflicting_roles(graceful, loud).
+conflicting_roles(graceful, naughty).
 conflicting_roles(quiet, loud).
 conflicting_roles(modest, arrogant).
+conflicting_roles(arrogant, nice).
 conflicting_roles(naughty, nice).
-conflicting_roles(kinky, vanilla).
-conflicting_roles(gentle, rough).
 
 
 need(become_a_hero).
