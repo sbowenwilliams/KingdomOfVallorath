@@ -298,7 +298,7 @@ roll_mage:-
 roll_thief:-
 	random_solution(between(1,6, Number)),writeln(Number),
 	random_solution(between(1,6, Number2)),writeln(Number2),
-	writeln('If snake eyes counts as 30.'),
+	writeln('If two 6s counts as 35.'),
 	!.
 roll_ranger:-
 	random_solution(between(1,6, Number)),writeln(Number),
