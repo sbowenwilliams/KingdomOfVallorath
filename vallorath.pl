@@ -9,7 +9,7 @@
 
 class(warrior).
 class(mage).
-class(rouge).
+class(rogue).
 class(ranger).
 class(bard).
 
@@ -158,13 +158,13 @@ object('sword of +1 attack').
 object('shield of +2 damage reduction').
 object('bow of +1 attack').
 object('staff of +1 attack').
-object('cloack of +1 damge reduction').
+object('cloak of +1 damge reduction').
 object('helm of +1 damage reduction').
 object('tent of +10 vitality (for all party members)').
 object('torch').
 object('rope - 30 feet').
-object('flaggon of -1 knowledge, +1 luck (on use)').
-object('lute of +1 luck').
+object('flagon of -1 knowledge, +1 luck (on use)').
+object('lute of +2 luck').
 object('dagger of +1 attack').
 object('bar of gold').
 object('meat of +5 vitality (on use)').
@@ -179,7 +179,7 @@ starts_with(class(warrior), object('sword of +1 attack')).
 starts_with(class(mage), object('staff of +1 attack')).
 starts_with(class(rogue), object('dagger of +1 attack')).
 starts_with(class(ranger), object('bow of +1 attack')).
-starts_with(class(bard), object('lute of +1 luck')).
+starts_with(class(bard), object('lute of +2 luck')).
 
 encounter(easy).
 encounter(medium).
