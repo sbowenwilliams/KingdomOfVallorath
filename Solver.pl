@@ -286,6 +286,66 @@ rolld4:-
 rolld6:-
 	random_solution(between(1,6, Number)),writeln(Number),!.
 
+roll_warrior:-
+	random_solution(between(1,20, Number)),writeln(Number),
+	writeln('If 20 counts as 25.'),
+	!.
+roll_mage:-
+	random_solution(between(1,6, Number)),writeln(Number),
+	random_solution(between(1,6, Number2)),writeln(Number2),
+	writeln('If same value does 100% to primary target and 50% to all other enemies.'),
+	!.
+roll_thief:-
+	random_solution(between(1,6, Number)),writeln(Number),
+	random_solution(between(1,6, Number2)),writeln(Number2),
+	writeln('If snake eyes counts as 30.'),
+	!.
+roll_ranger:-
+	random_solution(between(1,6, Number)),writeln(Number),
+	random_solution(between(1,6, Number2)),writeln(Number2),
+	writeln('If same value counts as 20.'),
+	!.
+roll_bard:-
+	random_solution(between(1,4, Number)),writeln(Number),
+	random_solution(between(1,4, Number2)),writeln(Number2),!.
+
+roll_easy:-
+	random_solution(between(1,6, Number)),writeln(Number),
+	!.
+roll_medium:-
+	random_solution(between(1,6, Number)),writeln(Number),
+	random_solution(between(1,6, Number2)),writeln(Number2),
+	writeln('If same value add 5 damage.'),
+	!.
+roll_hard:-
+	random_solution(between(1,6, Number)),writeln(Number),
+	random_solution(between(1,6, Number2)),writeln(Number2),
+	random_solution(between(1,6, Number3)),writeln(Number3),
+	writeln('If same value twice in a row add 10 damage.'),
+	!.
+
+roll_legendary:-
+	random_solution(between(1,6, Number)),writeln(Number),
+	random_solution(between(1,6, Number2)),writeln(Number2),
+	random_solution(between(1,6, Number3)),writeln(Number3),
+	random_solution(between(1,6, Number4)),writeln(Number4),
+	writeln('If same value twice in a row add 15 damage.'),
+	!.
+
+roll_boss:-
+	random_solution(between(1,6, Number)),writeln(Number),
+	random_solution(between(1,6, Number2)),writeln(Number2),
+	random_solution(between(1,6, Number3)),writeln(Number3),
+	random_solution(between(1,6, Number4)),writeln(Number4),
+	random_solution(between(1,6, Number5)),writeln(Number5),
+	writeln('If same value twice in a row add 20 damage.'),
+	!.
+
+drop_loot:-
+	random_solution(object(Object)),
+	writeln(Object),
+	!.
+
 
 
 
